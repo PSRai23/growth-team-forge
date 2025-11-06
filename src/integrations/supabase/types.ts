@@ -14,7 +14,48 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      user_preferences: {
+        Row: {
+          body_type: string | null
+          budget_max: number | null
+          budget_min: number | null
+          color_preferences: string[] | null
+          created_at: string
+          height_range: string | null
+          id: string
+          occasion_frequencies: Json | null
+          style_preferences: string[] | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          body_type?: string | null
+          budget_max?: number | null
+          budget_min?: number | null
+          color_preferences?: string[] | null
+          created_at?: string
+          height_range?: string | null
+          id?: string
+          occasion_frequencies?: Json | null
+          style_preferences?: string[] | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          body_type?: string | null
+          budget_max?: number | null
+          budget_min?: number | null
+          color_preferences?: string[] | null
+          created_at?: string
+          height_range?: string | null
+          id?: string
+          occasion_frequencies?: Json | null
+          style_preferences?: string[] | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

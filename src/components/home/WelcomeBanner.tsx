@@ -1,4 +1,4 @@
-import { Sparkles } from "lucide-react";
+import { Sparkles, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
@@ -13,13 +13,23 @@ export function WelcomeBanner() {
       <p className="text-sm text-primary/80 mb-4">
         Ready to discover your perfect style today?
       </p>
-      <Button 
-        onClick={() => navigate("/chat")}
-        className="bg-accent hover:bg-accent/90 text-accent-foreground font-ui gap-2"
-      >
-        <Sparkles className="h-4 w-4" />
-        Quick Style Check
-      </Button>
+      <div className="flex gap-3">
+        <Button 
+          onClick={() => navigate("/chat")}
+          className="bg-accent hover:bg-accent/90 text-accent-foreground font-ui gap-2 flex-1"
+        >
+          <Sparkles className="h-4 w-4" />
+          Quick Style Check
+        </Button>
+        <Button 
+          onClick={() => navigate("/onboarding")}
+          variant="outline"
+          className="gap-2"
+        >
+          <Settings className="h-4 w-4" />
+          Update Preferences
+        </Button>
+      </div>
     </div>
   );
 }
