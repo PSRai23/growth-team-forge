@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Heart, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface ProductCardProps {
   id: string;
@@ -16,9 +17,13 @@ interface ProductCardProps {
 
 export function ProductCard({ id, name, brand, price, imageUrl, category, isNew }: ProductCardProps) {
   const [isFavorite, setIsFavorite] = useState(false);
+  const navigate = useNavigate();
 
   return (
-    <Card className="group overflow-hidden transition-all hover:shadow-lg">
+    <Card 
+      className="group overflow-hidden transition-all hover:shadow-lg cursor-pointer"
+      onClick={() => navigate(`/product/${id}`)}
+    >
       <div className="relative aspect-[3/4] overflow-hidden bg-muted">
         <img 
           src={imageUrl} 
