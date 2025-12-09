@@ -339,12 +339,7 @@ export default function Cart() {
         <div className="fixed bottom-20 left-0 right-0 p-4 bg-background border-t border-border">
           <Button
             className="w-full h-12 text-base font-semibold gap-2"
-            onClick={() => {
-              toast({
-                title: "Checkout",
-                description: "Checkout functionality coming soon!",
-              });
-            }}
+            onClick={() => navigate("/checkout")}
           >
             Proceed to Checkout
             <ArrowRight className="w-4 h-4" />

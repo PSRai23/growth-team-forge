@@ -9,6 +9,8 @@ import Index from "./pages/Index";
 import Discover from "./pages/Discover";
 import ProductDetails from "./pages/ProductDetails";
 import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
+import OrderConfirmation from "./pages/OrderConfirmation";
 import Outfits from "./pages/Outfits";
 import Chat from "./pages/Chat";
 import Profile from "./pages/Profile";
@@ -32,6 +34,8 @@ const App = () => (
             <Route path="/discover" element={<ProtectedRoute><Discover /></ProtectedRoute>} />
             <Route path="/product/:id" element={<ProtectedRoute><ProductDetails /></ProtectedRoute>} />
             <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
+            <Route path="/checkout" element={<ProtectedRoute><Checkout /></ProtectedRoute>} />
+            <Route path="/order-confirmation/:orderId" element={<ProtectedRoute><OrderConfirmation /></ProtectedRoute>} />
             <Route path="/outfits" element={<ProtectedRoute><Outfits /></ProtectedRoute>} />
             <Route path="/chat" element={<ProtectedRoute><Chat /></ProtectedRoute>} />
             <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
