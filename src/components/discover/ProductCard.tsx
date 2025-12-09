@@ -2,8 +2,10 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Heart, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useWishlist } from "@/hooks/useWishlist";
+import { useAuth } from "@/contexts/AuthContext";
+import { useToast } from "@/hooks/use-toast";
 
 interface ProductCardProps {
   id: string;
@@ -16,8 +18,11 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ id, name, brand, price, imageUrl, category, isNew }: ProductCardProps) {
-  const [isFavorite, setIsFavorite] = useState(false);
   const navigate = useNavigate();
+  const { user } = useAuth();
+  const { isInWishlist, toggleWishlist } = useWishlist();
+  const { toast } = useToast();
+  const isFavorite = isInWishlist(id);
 
   return (
     <Card 
@@ -36,7 +41,13 @@ export function ProductCard({ id, name, brand, price, imageUrl, category, isNew 
           className="absolute top-2 right-2 bg-background/80 hover:bg-background"
           onClick={(e) => {
             e.preventDefault();
-            setIsFavorite(!isFavorite);
+            e.stopPropagation();
+            if (!user) {
+              toast({ title: "Sign in to save items", description: "Create an account to build your wishlist" });
+              navigate("/auth");
+              return;
+            }
+            toggleWishlist(id);
           }}
         >
           <Heart className={isFavorite ? "fill-primary text-primary" : ""} />
