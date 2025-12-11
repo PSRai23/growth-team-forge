@@ -25,6 +25,8 @@ import ProductList from "./pages/admin/ProductList";
 import ProductEdit from "./pages/admin/ProductEdit";
 import OrderList from "./pages/admin/OrderList";
 import OrderDetails from "./pages/admin/OrderDetails";
+import CategoryList from "./pages/admin/CategoryList";
+import CategoryEdit from "./pages/admin/CategoryEdit";
 
 const queryClient = new QueryClient();
 
@@ -55,6 +57,8 @@ const App = () => (
             <Route path="/admin/products/:id" element={<AdminRoute><ProductEdit /></AdminRoute>} />
             <Route path="/admin/orders" element={<AdminRoute><OrderList /></AdminRoute>} />
             <Route path="/admin/orders/:id" element={<AdminRoute><OrderDetails /></AdminRoute>} />
+            <Route path="/admin/categories" element={<AdminRoute><CategoryList /></AdminRoute>} />
+            <Route path="/admin/categories/:id" element={<AdminRoute><CategoryEdit /></AdminRoute>} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
