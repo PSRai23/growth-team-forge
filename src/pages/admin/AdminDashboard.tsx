@@ -69,19 +69,35 @@ export default function AdminDashboard() {
           </Card>
         </div>
 
-        <Card>
-          <CardHeader>
-            <CardTitle>Products Management</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <Link to="/admin/products">
-              <Button variant="outline" className="w-full justify-between">
-                View All Products
-                <ChevronRight className="h-4 w-4" />
-              </Button>
-            </Link>
-          </CardContent>
-        </Card>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Card>
+            <CardHeader>
+              <CardTitle>Products Management</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <Link to="/admin/products">
+                <Button variant="outline" className="w-full justify-between">
+                  View All Products
+                  <ChevronRight className="h-4 w-4" />
+                </Button>
+              </Link>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Order Management</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <Link to="/admin/orders">
+                <Button variant="outline" className="w-full justify-between">
+                  View All Orders
+                  <ChevronRight className="h-4 w-4" />
+                </Button>
+              </Link>
+            </CardContent>
+          </Card>
+        </div>
       </main>
     </div>
   );
