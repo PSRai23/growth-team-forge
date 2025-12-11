@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { ProtectedRoute } from "@/components/auth/ProtectedRoute";
+import { AdminRoute } from "@/components/auth/AdminRoute";
 import Index from "./pages/Index";
 import Discover from "./pages/Discover";
 import ProductDetails from "./pages/ProductDetails";
@@ -19,6 +20,9 @@ import Wishlist from "./pages/Wishlist";
 import Onboarding from "./pages/Onboarding";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import ProductList from "./pages/admin/ProductList";
+import ProductEdit from "./pages/admin/ProductEdit";
 
 const queryClient = new QueryClient();
 
@@ -43,6 +47,10 @@ const App = () => (
             <Route path="/search" element={<ProtectedRoute><Search /></ProtectedRoute>} />
             <Route path="/wishlist" element={<ProtectedRoute><Wishlist /></ProtectedRoute>} />
             <Route path="/onboarding" element={<ProtectedRoute><Onboarding /></ProtectedRoute>} />
+            {/* Admin Routes */}
+            <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
+            <Route path="/admin/products" element={<AdminRoute><ProductList /></AdminRoute>} />
+            <Route path="/admin/products/:id" element={<AdminRoute><ProductEdit /></AdminRoute>} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
