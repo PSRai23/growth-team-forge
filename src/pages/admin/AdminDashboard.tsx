@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Package, ShoppingCart, FolderTree, Boxes, Plus, ChevronRight } from "lucide-react";
+import { Package, ShoppingCart, FolderTree, Boxes, Users, Plus, ChevronRight } from "lucide-react";
 
 export default function AdminDashboard() {
   const { data: stats } = useQuery({
@@ -69,10 +69,10 @@ export default function AdminDashboard() {
           </Card>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <Card>
             <CardHeader>
-              <CardTitle>Products Management</CardTitle>
+              <CardTitle>Products</CardTitle>
             </CardHeader>
             <CardContent>
               <Link to="/admin/products">
@@ -86,7 +86,7 @@ export default function AdminDashboard() {
 
           <Card>
             <CardHeader>
-              <CardTitle>Order Management</CardTitle>
+              <CardTitle>Orders</CardTitle>
             </CardHeader>
             <CardContent>
               <Link to="/admin/orders">
@@ -100,7 +100,7 @@ export default function AdminDashboard() {
 
           <Card>
             <CardHeader>
-              <CardTitle>Category Management</CardTitle>
+              <CardTitle>Categories</CardTitle>
             </CardHeader>
             <CardContent>
               <Link to="/admin/categories">
@@ -114,12 +114,26 @@ export default function AdminDashboard() {
 
           <Card>
             <CardHeader>
-              <CardTitle>Inventory Management</CardTitle>
+              <CardTitle>Inventory</CardTitle>
             </CardHeader>
             <CardContent>
               <Link to="/admin/inventory">
                 <Button variant="outline" className="w-full justify-between">
                   View Stock Levels
+                  <ChevronRight className="h-4 w-4" />
+                </Button>
+              </Link>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Users</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <Link to="/admin/users">
+                <Button variant="outline" className="w-full justify-between">
+                  Manage Users
                   <ChevronRight className="h-4 w-4" />
                 </Button>
               </Link>
