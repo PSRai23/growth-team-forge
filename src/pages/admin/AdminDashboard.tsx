@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Package, ShoppingCart, FolderTree, Plus, ChevronRight } from "lucide-react";
+import { Package, ShoppingCart, FolderTree, Boxes, Plus, ChevronRight } from "lucide-react";
 
 export default function AdminDashboard() {
   const { data: stats } = useQuery({
@@ -69,7 +69,7 @@ export default function AdminDashboard() {
           </Card>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Card>
             <CardHeader>
               <CardTitle>Products Management</CardTitle>
@@ -106,6 +106,20 @@ export default function AdminDashboard() {
               <Link to="/admin/categories">
                 <Button variant="outline" className="w-full justify-between">
                   View All Categories
+                  <ChevronRight className="h-4 w-4" />
+                </Button>
+              </Link>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Inventory Management</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <Link to="/admin/inventory">
+                <Button variant="outline" className="w-full justify-between">
+                  View Stock Levels
                   <ChevronRight className="h-4 w-4" />
                 </Button>
               </Link>
